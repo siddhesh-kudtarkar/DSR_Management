@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="w3-animate-right">
+      <img src="assets/svgIcons/scan-qr-code.svg" style="width: 28px; height: 28px;" alt="Code_Details">
+      <b class="fontChange" style="font-size: 18px;">Code Details</b>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-image: url('assets/imgs/bg.png'); background-size: 100% 100%; background-repeat: no-repeat; font-size: 15px; margin-bottom: 20px;">
+
+  <ion-card class="w3-card-4" style="border-radius: 15px; width: 95%;">
+    <ion-card-content>
+
+      <div style="display: block; margin: auto;" class="w3-animate-zoom">
+        <canvas #code id="code"></canvas>
+      </div>
+
+      <div style="font-size: 15px; color: black;">
+        Product Type: <b>{{ codeDetail.product_type }}</b><br>
+
+        Product Cost: <b>&#8377; {{ codeDetail.product_cost }}</b><br>
+
+        Department: <b>{{ codeDetail.department }}</b><br>
+        
+        Serial No.: <b>{{ codeDetail.serial_number }}</b><br>
+        
+        Reference No.: <b>{{ codeDetail.reference_number }}</b><br>
+        
+        Date of Purchase: <b>{{ codeDetail.date_of_purchase }}</b>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button round block icon-start style="font-size: 15px; background-color: white; color: #923DE3;" (click)="saveCode()">
+    <ion-icon name="md-download"></ion-icon>
+    <b>Save code to device</b>
+  </button>
+
+</ion-content>

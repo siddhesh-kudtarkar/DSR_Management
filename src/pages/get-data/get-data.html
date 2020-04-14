@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="w3-animate-right">
+      <img src="assets/svgIcons/get-data.svg" style="width: 28px; height: 28px;" alt="Stored_Records">
+      <b class="fontChange" style="font-size: 18px;">Stored Records</b>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-image: url('assets/imgs/bg.png'); background-size: 100% 100%; background-repeat: no-repeat; font-size: 15px; margin-bottom: 20px;">
+
+  <p class="fontChange w3-animate-left" style="font-size: 15px; color: white;">
+    <b>Stored Records:</b>
+  </p>
+
+  <p *ngIf="this.records.length == 0" class="fontChange w3-animate-right" style="font-size: 15px; color: white;">
+    <b>No stored records found. Start scanning now!</b>
+  </p>
+
+  <ion-grid style="margin-left: auto; margin-right: auto;">
+    <ion-row *ngFor="let elem of records; let i = index" class="w3-animate-left w3-margin-bottom w3-card-4">
+      <div style="margin-bottom: 20px; width: 100%; border-radius: 10px; background-color: white; font-size: 15px; text-align: left; margin: auto;">
+        <details style="padding: 12px;">
+          <summary class="w3-animate-zoom">
+              Product Type: <b>{{ elem.product_type }}</b><br>
+              Product Cost: <b>&#8377; {{ elem.product_cost }}</b><br>
+              Department: <b>{{ elem.department }}</b>
+          </summary>
+          <div class="w3-animate-zoom">
+            Serial No.: <b>{{ elem.serial_number }}</b>
+          </div>
+          <div class="w3-animate-zoom">
+            Reference No.: <b>{{ elem.reference_number }}</b>
+          </div>
+          <div class="w3-animate-zoom">
+            Date of Purchase: <b>{{ elem.date_of_purchase }}</b>
+          </div>
+          <div class="w3-animate-zoom">
+            Code Format: <b>{{ elem.code_format }}</b>
+          </div><br>
+          
+          <button ion-button medium icon-start round color="purple" type="submit" style="color: white; font-size: 14px; display: block; margin: auto; width: 50%"  class="w3-animate-zoom w3-margin-bottom" (click)="displayCode(i)">
+            <ion-icon name="md-eye"></ion-icon>
+            <b>View code</b>
+          </button>
+
+          <button ion-button medium icon-start round color="purple" type="submit" style="color: white; font-size: 14px; display: block; margin: auto; width: 50%"  class="w3-animate-zoom" (click)="deleteCode(i)">
+            <ion-icon name="md-trash"></ion-icon>
+            <b>Delete Record</b>
+          </button>
+
+        </details>
+      </div>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,102 @@
+ion-content {
+    font-family: 'Raleway' !important;
+}
+
+.fontChange {
+    font-family: 'Raleway' !important;
+}
+
+ion-input ion-item {
+    input::placeholder {
+        color: black !important;
+    }
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    opacity: 0.6;
+    color: black !important;
+    padding-left: 10px !important;
+}
+
+.textInputConfig {
+    background-color: white;
+    padding-left: 10px;
+}
+
+.roundBorder {
+    border-radius: 45px;
+}
+
+.item-radio.item ion-label {
+    font-family: 'Raleway' !important;
+    font-size: 16px;
+}
+
+.item-radio-checked.item ion-label {
+    color: #923DE3 !important;
+}
+
+ion-label {
+    font-family: 'Raleway' !important;
+    font-size: 15px !important;
+    color: black !important;
+    padding-left: 10px !important;
+}
+
+ion-select ion-option {
+    font-size: 15px !important;
+}
+
+.errorMsg {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: bold;
+}
+
+.fontSize {
+    font-size: 18px !important;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: auto;
+    .modal-body {
+        padding: 20px;
+        background: #fff;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 150px;
+        border-radius: 15px;
+    }
+}
+.modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparentize($color: #000000, $amount: 0.2);
+    opacity: 0.75;
+    z-index: 900;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.ionRowMargin {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ionColColor {
+    background-color: transparentize($color: lightgrey, $amount: 0.7);
+    margin: -2px;
+}

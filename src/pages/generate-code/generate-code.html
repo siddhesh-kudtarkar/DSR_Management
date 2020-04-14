@@ -1,0 +1,130 @@
+<ion-header>
+
+  <ion-navbar>
+    
+    <ion-title *ngIf="codeType == 'barcode'" class="w3-animate-right">
+      <img src="assets/svgIcons/generate-barcode.svg" alt="Get Data" style="width: 28px; height: 28px;">
+        <b *ngIf="functionType != 'storeBarcode'"class="fontChange" style="font-size: 18px;">Generate Barcode</b>
+        <b *ngIf="functionType == 'storeBarcode'"class="fontChange" style="font-size: 18px;">Store Barcode Details</b>
+    </ion-title>
+
+    <ion-title *ngIf="codeType != 'barcode'" class="w3-animate-right">
+      <img src="assets/svgIcons/generate-qr-code.svg" alt="Get Data" style="width: 28px; height: 28px;">
+        <b class="fontChange" style="font-size: 18px;">Generate QR Code</b>
+    </ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding style="background-image: url('assets/imgs/bg.png'); background-size: 100% 100%; background-repeat: no-repeat; font-size: 15px;">
+
+  <p *ngIf="codeType == 'barcode' && functionType != 'storeBarcode'" class="fontChange w3-animate-left" style="font-size: 15px; text-align: center; color: white;">
+    <b>(Only serial number will be encoded in the barcode).</b>
+  </p>
+
+  <form [formGroup]="generateCodeForm" (ngSubmit)="generateCodeForm.value">
+
+    <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Serial No.:
+      </ion-label>
+      <ion-input type="text" formControlName="serialNo"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.serialNo">
+      <span *ngIf="serialNo?.hasError(error.type) && (serialNo?.dirty || serialNo?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+  
+    <p *ngIf="codeType == 'barcode' && functionType != 'storeBarcode'" class="fontChange w3-animate-right" style="font-size: 15px; text-align: center; color: white;">
+      <b>(Rest of the details to be filled below will be stored for future retrieval along with the serial number).</b>
+    </p>
+
+    <ion-item class="roundBorder w3-animate-right" style="opacity: 0.6;">
+      <ion-label class="fontChange" style="font-size: 15px;">Department:</ion-label>
+      <ion-select interface="popover" class="fontChange" style="font-size: 15px" formControlName="department">
+        <ion-option value="{{ elem }}" *ngFor="let elem of this.productService.departments">
+          <p class="fontChange" style="font-size: 15px;">{{ elem }}</p>
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.department">
+      <span *ngIf="department?.hasError(error.type) && (department?.dirty || department?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Reference No.:
+      </ion-label>
+      <ion-input type="text" formControlName="referenceNo"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.referenceNo">
+      <span *ngIf="referenceNo?.hasError(error.type) && (referenceNo?.dirty || referenceNo?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder w3-animate-right" style="opacity: 0.6;">
+      <ion-label class="fontChange" style="font-size: 15px; color: black;">Product Type:</ion-label>
+      <ion-select interface="popover" class="fontChange" style="font-size: 15px" formControlName="productType">
+        <ion-option value="{{ elem }}" *ngFor="let elem of this.productService.products">
+          <p class="fontChange" style="font-size: 15px;">{{ elem }}</p>
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div style="padding: 08px;"></div>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.productType">
+      <span *ngIf="productType?.hasError(error.type) && (productType?.dirty || productType?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder w3-animate-left" style="opacity: 0.6;">
+      <ion-label class="fontChange" style="color: black; font-size: 15px;">
+        Date of Purchase:
+      </ion-label>
+      <ion-datetime class="fontChange" displayFormat="DD-MMM-YYYY" pickerFormat="DD-MMM-YYYY" style="font-size: 15px;" formControlName="dateOfPurchase"></ion-datetime>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.dateOfPurchase">
+      <span *ngIf="dateOfPurchase?.hasError(error.type) && (dateOfPurchase?.dirty || dateOfPurchase?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder textInputConfig w3-animate-right" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Product Cost:
+      </ion-label>
+      <ion-input type="text" formControlName="productCost"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.productCost">
+      <span *ngIf="productCost?.hasError(error.type) && (productCost?.dirty || productCost?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+    
+    <button ion-button icon-start round block type="submit" style="color: #923DE3; background-color: white; font-size: 15px;" class="w3-animate-left" (click)="generateCode()" [disabled]="!generateCodeForm.valid">
+      <ion-icon *ngIf="codeType == 'barcode'">
+        <img src="assets/svgIcons/generate-barcode.svg" alt="Generate Barcode" style="width: 22px; height: 22px;">
+      </ion-icon>
+      <ion-icon *ngIf="codeType != 'barcode'">
+        <img src="assets/svgIcons/generate-qr-code.svg" alt="Generate Barcode" style="width: 22px; height: 22px;">
+      </ion-icon>
+      <b *ngIf="codeType != 'barcode'">Generate</b>
+      <b *ngIf="codeType == 'barcode' && functionType != 'storeBarcode'">Generate & Store</b>
+      <b *ngIf="codeType == 'barcode' && functionType == 'storeBarcode'">Store Details</b>
+    </button>
+
+  </form>
+
+</ion-content>

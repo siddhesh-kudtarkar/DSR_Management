@@ -1,0 +1,41 @@
+<div class="modal fontChange">
+  <div class="modal-body">
+      <ion-grid>
+
+          <ion-row>
+
+              <ion-col *ngIf="this.codeType == 'barcode'" col-10 style="font-size: 18px; text-align: center; margin-top: -2px;" class="w3-animate-zoom">
+                <b>Generated Barcode</b>
+              </ion-col>
+
+              <ion-col *ngIf="this.codeType != 'barcode'" col-10 style="font-size: 18px; text-align: center; margin-top: -2px;" class="w3-animate-zoom">
+                <b>Generated QR Code</b>
+              </ion-col>
+
+              <ion-col col-2>
+                  <img (click)="closeModal()" src="assets/svgIcons/close.svg" alt="Close" style="width: 20px; height: 20px; display: block; margin: auto;" class="w3-animate-zoom">
+              </ion-col>
+
+          </ion-row>
+    
+      </ion-grid>
+
+      <div style="display: block; margin: auto" *ngIf="codeType == 'barcode'" class="w3-animate-zoom">
+        <svg #barcode id="barcode"></svg>
+      </div>
+
+      <div style="display: block; margin: auto;" *ngIf="codeType != 'barcode'" class="w3-animate-zoom">
+        <canvas #qrcode id="qrcode"></canvas>
+      </div>
+
+      <button *ngIf="this.codeType == 'barcode'" ion-button outline icon-start round block type="submit" style="color: #923DE3; font-size: 15px;" class="w3-animate-zoom" (click)="saveBarcode()">
+        <b>Save Barcode to device</b>
+      </button>
+
+      <button *ngIf="this.codeType != 'barcode'" ion-button outline icon-start round block type="submit" style="color: #923DE3; font-size: 15px;" class="w3-animate-zoom" (click)="saveQrCode()">
+        <b>Save QR Code to device</b>
+      </button>
+  
+  </div>
+</div>
+<div class="modal-background"></div>

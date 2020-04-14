@@ -1,0 +1,37 @@
+<div class="modal fontChange">
+  <div class="modal-body">
+      <ion-grid>
+
+          <ion-row>
+
+              <ion-col col-10 style="font-size: 18px; text-align: center; margin-top: -2px;" class="w3-animate-zoom">
+                <b>Generate Barcode</b>
+              </ion-col>
+
+              <ion-col col-2>
+                  <img (click)="closeModal()" src="assets/svgIcons/close.svg" alt="Close" style="width: 20px; height: 20px; display: block; margin: auto;" class="w3-animate-zoom">
+              </ion-col>
+
+          </ion-row>
+    
+      </ion-grid>
+
+      <form [formGroup]="barcodeForm" (ngSubmit)="barcodeForm.value">
+  
+        <ion-item class="w3-animate-zoom" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+          <ion-label inline>
+            Serial No.:
+          </ion-label>
+          <ion-input type="text" formControlName="serialNo"></ion-input>
+        </ion-item>
+
+        <button ion-button outline round block type="submit" style="color: #923DE3; font-size: 15px;" class="w3-animate-zoom" (click)="generateBarcode()" [disabled]="!this.barcodeForm.valid">
+
+          <b>Generate Barcode</b>
+        </button>
+
+      </form>
+  
+  </div>
+</div>
+<div class="modal-background"></div>

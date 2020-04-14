@@ -1,0 +1,40 @@
+$font-path: "../assets/fonts";
+@font-face {
+  font-family: 'Raleway';
+  font-style: bold;
+  font-weight: 380;
+  src: url('../assets/fonts/raleway-regular.ttf');
+}
+
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+$colors: (
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  purple:     #923DE3,
+  white:      #ffffff
+);
+
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";

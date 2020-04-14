@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="w3-animate-left">
+      <img src="assets/svgIcons/home.svg" alt="Home" style="width: 28px; height: 28px;">
+      <b class="fontChange" style="font-size: 18px;">Home</b>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-start style="background-color: transparent; color: #923DE3" (click)="logout()" class="w3-animate-right">
+        <ion-icon>
+          <img src="assets/svgIcons/logout.svg" alt="Logout" style="width: 30px; height: 30px; padding-top: 5px;">
+        </ion-icon> <b class="fontChange" style="font-size: 14px;">Logout</b>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid style="margin-bottom: 90px; margin-left: auto; margin-right: auto;">
+    <ion-row>
+      <ion-col col-6 *ngFor="let grid of gridList; let i = index" class="w3-animate-zoom">
+        <div style="border-radius: 10px; height: 90%;" class="w3-card-4" (click)="getPageTitle(i)">
+          <img class="w3-image" style="display: block; margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; padding-top: 20px; width: 70px; height: 70px;" src="{{ grid.image }}" alt="{{ grid.text }}">
+          <p style="font-size: 15px; text-align: center; margin: auto; padding: 10px;">
+            <b>{{ grid.text }}</b>
+          </p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

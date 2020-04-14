@@ -1,0 +1,61 @@
+<ion-content padding style="background-image: url('assets/imgs/bg.png'); background-size: 100% 100%; background-repeat: no-repeat; font-size: 15px;">
+
+  <p class="fontChange w3-animate-zoom" style="font-size: 24px; text-align: center; color: white;">
+    <b>DSR Management</b>
+  </p>
+
+  <img src="assets/imgs/logo.png" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px; border-radius: 20px;" class="w3-card-4 w3-animate-fading">
+
+  <form [formGroup]="loginForm" style="margin-top: 40px; margin-bottom: 10px;" (ngSubmit)="loginForm.value">
+    
+    <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline class="fontChange" style="color: black">
+        Username:
+      </ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.username">
+      <span *ngIf="username?.hasError(error.type) && (username?.dirty || username?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder textInputConfig w3-animate-right" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Password:
+      </ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.password">
+      <span *ngIf="password?.hasError(error.type) && (password?.dirty || password?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <button ion-button icon-start round block color="white" type="submit" style="color: #923DE3; font-size: 15px;" (click)="login(username.value, password.value)" [disabled]="!loginForm.valid" class="w3-animate-left">
+      <ion-icon>
+        <img src="assets/svgIcons/login.svg" alt="Login" style="width: 20px; height: 20px;">
+      </ion-icon>
+      <b>Login</b>
+    </button>
+
+  </form>
+
+  <button ion-button icon-start round block color="white" type="submit" style="color: #923DE3; font-size: 15px;" (click)="guestLogin()" class="w3-animate-right">
+    <ion-icon>
+      <img src="assets/svgIcons/account.svg" alt="Guest" style="width: 20px; height: 20px;">
+    </ion-icon>
+    <b>Login as Guest</b>
+  </button>
+
+  <div style="color: white; font-size: 15px; margin-left: 10px; margin-top: 20px;" (click)="register()" class="w3-animate-bottom">
+    <b>Don't have an account? Register Here.</b>
+  </div>
+
+  <div style="font-size: 4px; margin-left: 10px; color: white; margin-top: 50px;">
+    Developed by Siddhesh Kudtarkar.
+  </div>
+
+</ion-content>

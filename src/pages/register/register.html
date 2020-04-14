@@ -1,0 +1,107 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="w3-animate-right">
+      <img src="assets/svgIcons/register.svg" alt="Get Data" style="width: 28px; height: 28px;">
+      <b class="fontChange" style="font-size: 18px;">Register</b>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding style="background-image: url('assets/imgs/bg.png'); background-size: 100% 100%; background-repeat: no-repeat; font-size: 15px; margin-bottom: 20px;">
+
+  <form [formGroup]="registerForm" style="margin-bottom: 10px;" (ngSubmit)="registerForm.value">
+
+    <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        First Name:
+      </ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.firstName">
+      <span *ngIf="firstName?.hasError(error.type) && (firstName?.dirty || firstName?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+  
+    <ion-item class="roundBorder textInputConfig w3-animate-right" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Last Name:
+      </ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.lastName">
+      <span *ngIf="lastName?.hasError(error.type) && (lastName?.dirty || lastName?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Username:
+      </ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.username">
+      <span *ngIf="username?.hasError(error.type) && (username?.dirty || username?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder textInputConfig w3-animate-right" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Email ID:
+      </ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.email">
+      <span *ngIf="email?.hasError(error.type) && (email?.dirty || email?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Password:
+      </ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.password">
+      <span *ngIf="password?.hasError(error.type) && (password?.dirty || password?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Sharing ID:
+      </ion-label>
+      <ion-input type="text" formControlName="shareId"></ion-input>
+    </ion-item>
+    
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.shareId">
+      <span *ngIf="shareId?.hasError(error.type) && (shareId?.dirty || shareId?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <button ion-button icon-start round block type="submit" style="color: #923DE3; background-color: white; font-size: 15px;" [disabled]="!registerForm.valid" (click)="checkUsername()" class="w3-animate-right">
+      <ion-icon>
+        <img src="assets/svgIcons/register.svg" alt="Register" style="width: 20px; height: 20px;">
+      </ion-icon>
+      <b>Register</b>
+    </button>
+
+  </form>
+
+  <div style="color: white; font-size: 15px; margin-left: 10px; margin-top: 20px;" class="w3-animate-bottom">
+    <b (click)="login()">Already have an account? Login Here.</b>
+  </div>
+
+</ion-content>

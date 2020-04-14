@@ -1,0 +1,107 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="w3-animate-right">
+      <img src="assets/svgIcons/account.svg" style="width: 28px; height: 28px;" alt="User Account">
+      <b class="fontChange" style="font-size: 18px;">User Account</b>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="background-image: url('assets/imgs/bg.png'); background-size: 100% 100%; background-repeat: no-repeat; font-size: 15px; margin-bottom: 20px;">
+
+  <p class="fontChange w3-animate-left" style="font-size: 15px; color: white;">
+    <b>Account Details:</b>
+  </p>
+
+  <ion-item class="roundBorder textInputConfig w3-animate-right" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+    <ion-label inline>
+      User ID:
+    </ion-label>
+    <ion-input type="text" disabled="true" [(ngModel)]="userId"></ion-input>
+  </ion-item>
+  
+  <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+    <ion-label inline>
+      Username:
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="username" disabled="true"></ion-input>
+  </ion-item>
+
+  <form [formGroup]="accountForm" style="margin-bottom: 10px;" (ngSubmit)="accountForm.value">
+    
+    <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        First Name:
+      </ion-label>
+      <ion-input type="text" formControlName="firstName" [disabled]="this.isDisabled"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.firstName">
+      <span *ngIf="firstName?.hasError(error.type) && (firstName?.dirty || firstName?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+  
+    <ion-item class="roundBorder textInputConfig w3-animate-right" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Last Name:
+      </ion-label>
+      <ion-input type="text" formControlName="lastName" [disabled]="this.isDisabled"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.lastName">
+      <span *ngIf="lastName?.hasError(error.type) && (lastName?.dirty || lastName?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder textInputConfig w3-animate-right" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Email ID:
+      </ion-label>
+      <ion-input type="email" formControlName="email" [disabled]="this.isDisabled"></ion-input>
+    </ion-item>
+
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.email">
+      <span *ngIf="email?.hasError(error.type) && (email?.dirty || email?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <ion-item class="roundBorder textInputConfig w3-animate-left" style="height: 20px; font-size: 15px; opacity: 0.6; margin-top: 10px; margin-bottom: 10px;">
+      <ion-label inline>
+        Sharing ID:
+      </ion-label>
+      <ion-input type="text" formControlName="shareId" [disabled]="this.isDisabled"></ion-input>
+    </ion-item>
+    
+    <div class="errorMsg" *ngFor="let error of this.productService.errorMessages.shareId">
+      <span *ngIf="shareId?.hasError(error.type) && (shareId?.dirty || shareId?.touched)">
+        {{ error.message }}
+      </span>
+    </div>
+
+    <button ion-button icon-start round block type="submit" style="color: #923DE3; background-color: white; font-size: 15px;" (click)="edit()" class="w3-animate-right">
+      <ion-icon name="md-create"></ion-icon>
+      <b>Edit details</b>
+    </button>
+
+    <button ion-button icon-start round block type="submit" style="color: #923DE3; background-color: white; font-size: 15px;" [disabled]="!accountForm.valid || this.isDisabled" (click)="saveChanges()" class="w3-animate-left">
+      <ion-icon>
+        <img src="assets/svgIcons/register.svg" alt="Register" style="width: 20px; height: 20px;">
+      </ion-icon>
+      <b>Save Changes</b>
+    </button>
+
+  </form>
+
+  <button ion-button icon-start round block type="submit" style="color: #923DE3; background-color: white; font-size: 15px;" (click)="deleteAccount()" class="w3-animate-bottom">
+    <ion-icon>
+      <img src="assets/svgIcons/account.svg" alt="Delete_Account" style="width: 20px; height: 20px;">
+    </ion-icon>
+    <b>Delete Account</b>
+  </button>
+
+</ion-content>
