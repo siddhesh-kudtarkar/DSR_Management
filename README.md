@@ -1,25 +1,25 @@
-**Project Title:**
+# Project Title:
 
 DSR Management.
 
-**Getting Started:**
+# Getting Started:
 
 Setting up and installing this software is easy by just installing Ionic, Cordova, Android SDKs.
 
-**Prerequisites:**
+# Prerequisites:
 
-Softwares needed:
+**Softwares needed:**
 1.	Ionic v3.9.2.
 2.	Cordova v8.0.0.
 3.	NodeJS v8.11.4.
 3.	Android Studio.
 4.	Android SDKs (from Android KitKat to Android P).
 
-**Installing required softwares:**
+# Installing required softwares:
 1.	NodeJS: https://nodejs.org/dist/v8.11.4/
 2.	Android Studio: https://developer.android.com/studio/
 
-**For Windows users:**
+**For Windows users:
 1.	Download NodeJS & Android Studio from the provided download links.
 2.	Open Command Prompt in Administrator mode and then execute the following commands to install Ionic & Cordova using npm:
 		npm install -g ionic@3.9.2 cordova@8.0.0
@@ -67,11 +67,11 @@ For Windows users:
 3.	After the process is completed, the generated APK can be found by the name of 'apk-debug.apk' at the following location:
 	<Project directory's path>/platforms/android/app/build/outputs/apk
 
-**Built with:**
+# Built with:
 
 1.	Ionic Framework - A framework for hybrid mobile app development.
 2.	Cordova - A mobile application development framework.
 
-**Author:**
+# Author:
 
     Siddhesh Kudtarkar
