@@ -19,7 +19,7 @@ Setting up and installing this software is easy by just installing Ionic, Cordov
 1.	NodeJS: https://nodejs.org/dist/v8.11.4/
 2.	Android Studio: https://developer.android.com/studio/
 
-**For Windows users:
+**For Windows users:**
 1.	Download NodeJS & Android Studio from the provided download links.
 2.	Open Command Prompt in Administrator mode and then execute the following commands to install Ionic & Cordova using npm:
 		npm install -g ionic@3.9.2 cordova@8.0.0
