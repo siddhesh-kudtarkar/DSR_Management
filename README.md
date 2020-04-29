@@ -1,8 +1,8 @@
-**#Project Title:#**
+**Project Title:**
 
 DSR Management.
 
-**#Getting Started:#**
+**Getting Started:**
 
 Setting up and installing this software is easy by just installing Ionic, Cordova, Android SDKs.
 
