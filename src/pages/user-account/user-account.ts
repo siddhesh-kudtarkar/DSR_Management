@@ -103,7 +103,7 @@ export class UserAccountPage {
     });
 
     loader.present().then(() => {
-      this.http.post('http://sidsk99.heliohost.org/dsr/update_data.php', data, options).map(res => res.json())
+      this.http.post('http://your.server-url.com/update_data.php', data, options).map(res => res.json())
         .subscribe((res) => {
           loader.dismiss();
           if (res == "Account Details updated successfully") {

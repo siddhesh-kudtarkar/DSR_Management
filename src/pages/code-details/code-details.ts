@@ -48,7 +48,7 @@ export class CodeDetailsPage {
     }
 
     loader.present().then(() => {
-      this.http.post('http://sidsk99.heliohost.org/dsr/fetch_data.php', data, options)
+      this.http.post('http://your.server-url.com/fetch_data.php', data, options)
         .map(res => res.json())
         .subscribe((res) => {
           this.codeDetail = res.server_response[0];

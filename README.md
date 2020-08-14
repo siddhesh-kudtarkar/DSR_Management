@@ -30,6 +30,7 @@ Setting up and installing this software is easy by just installing Ionic, Cordov
 6.  Go to you web server and then start 'PHPMyAdmin' and then create a MySQL database with name 'dsr' and them import the 'dsr.sql' file into the database. This will create the required database tables on your web server.
 7.  Next, move all the files from the 'php' folder to your web server. The PHP files will manage the back-end part of the app.
 8.  Change all the URLs of the PHP files in the project's 'src' folder to your web server's URL. If you don't change the URL, then the app won't work as expected.
+9.  Open the 'dbconnect.php' file and change the database credentials.
 
 **For Ubuntu/Debian users:**
 1.	Download NodeJS & Android Studio from the provided download links.
@@ -41,6 +42,7 @@ Setting up and installing this software is easy by just installing Ionic, Cordov
 6.  Go to you web server and then start 'PHPMyAdmin' and then create a MySQL database with name 'dsr' and them import the 'dsr.sql' file into the database. This will create the required database tables on your web server.
 7.  Next, move all the files from the 'php' folder to your web server. The PHP files will manage the back-end part of the software.
 8.  Change all the URLs of the PHP files in the project's 'src' folder to your web server's URL. If you don't change the URL, then the app won't work as expected.
+9.  Open the 'dbconnect.php' file and change the database credentials.
 
 **Following the above installation steps for required softwares will set up an environment to run the DSR Management software without any hassles.**
 

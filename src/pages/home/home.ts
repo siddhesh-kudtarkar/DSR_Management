@@ -201,7 +201,7 @@ export class HomePage {
               });
 
               loader.present().then(() => {
-                this.http.post('http://sidsk99.heliohost.org/dsr/check_data.php', data, options).map((res) => res.json()).subscribe((res) => {
+                this.http.post('http://your.server-url.com/check_data.php', data, options).map((res) => res.json()).subscribe((res) => {
                     loader.dismiss();
                     if (res == "Not present") {
                       this.navCtrl.push(GenerateCodePage, {
@@ -286,7 +286,7 @@ export class HomePage {
               });
 
               loader.present().then(() => {
-                this.http.post('http://sidsk99.heliohost.org/dsr/check_data.php', data, options).map((res) => res.json()).subscribe((res) => {
+                this.http.post('http://your.server-url.com/check_data.php', data, options).map((res) => res.json()).subscribe((res) => {
                     loader.dismiss();
                     if (res == "Not present") {
                       const alert = this.alertCtrl.create({
@@ -322,7 +322,7 @@ export class HomePage {
                             });
 
                             loader.present().then(() => {
-                              this.http.post('http://sidsk99.heliohost.org/dsr/add_data.php', data, options).map(res => res.json())
+                              this.http.post('http://your.server-url.com/add_data.php', data, options).map(res => res.json())
                                 .subscribe(res => {
                                   loader.dismiss();
                                   if (res == "Added successfully") {
